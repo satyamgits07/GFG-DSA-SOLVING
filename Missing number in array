@@ -1,0 +1,14 @@
+
+// User function Template for Java
+
+class Solution {
+    int missingNumber(int array[], int n) {
+        // Your Code Here
+        int expectedSum = (n*(n+1))/2;
+        int actualSum = 0;
+        for(int num : array){
+            actualSum = actualSum+num;
+        }
+        return expectedSum-actualSum;
+    }
+}
