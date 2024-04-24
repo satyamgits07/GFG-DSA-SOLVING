@@ -1,0 +1,28 @@
+
+class Solution {
+    public static ArrayList<Integer> duplicates(int arr[], int n) {
+               ArrayList<Integer> result = new ArrayList<>();
+
+        // Traverse the array and use the array values as indices to mark visited elements
+        for (int i = 0; i < n; i++) {
+            int index = arr[i] % n; // Get the original index of the current element
+            
+            // Increment the value at the index by n
+            arr[index] += n;
+        }
+
+        // Traverse the array again to find elements with values greater than or equal to 2*n
+        for (int i = 0; i < n; i++) {
+            if (arr[i] >= 2 * n) {
+                result.add(i);
+            }
+        }
+
+        // If no duplicates found, add -1
+        if (result.isEmpty()) {
+            result.add(-1);
+        }
+
+        return result;
+    }
+}
